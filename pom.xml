@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  ~ This file is licensed under the EUPL v1.1 or later.
+  ~ Original Licensor: Stefan Paletta <stefanp at nein.io>, Berlin, Germany.
+  -->
+
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>io.nein</groupId>
+    <artifactId>native-hostname</artifactId>
+    <version>1.0.0</version>
+    <packaging>jar</packaging>
+
+    <name>native-hostname</name>
+    <description>Gets the hostname via the OS native call on POSIX and Windows NT. Because
+        InetAddress.getLocalHost().getHostName() sucks.</description>
+
+    <properties>
+        <version.jna>4.1.0</version.jna>
+        <version.junit>4.12</version.junit>
+        <version.maven.compiler.plugin>3.5.1</version.maven.compiler.plugin>
+        <maven.compiler.target>1.8</maven.compiler.target>
+        <maven.compiler.source>1.8</maven.compiler.source>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    </properties>
+
+    <dependencies>
+        <dependency>
+            <groupId>net.java.dev.jna</groupId>
+            <artifactId>jna</artifactId>
+            <version>${version.jna}</version>
+        </dependency>
+        <dependency>
+            <groupId>junit</groupId>
+            <artifactId>junit</artifactId>
+            <version>${version.junit}</version>
+            <scope>test</scope>
+        </dependency>
+    </dependencies>
+
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <version>${version.maven.compiler.plugin}</version>
+            </plugin>
+        </plugins>
+    </build>
+
+</project>
