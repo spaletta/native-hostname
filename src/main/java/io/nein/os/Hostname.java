@@ -8,6 +8,8 @@ import io.nein.os.nt.Winsock2;
 import io.nein.os.posix.CLibrary;
 import io.nein.os.posix.utsname;
 
+import static io.nein.os.common.String.strlen;
+
 public class Hostname
 {
     public static String get()
@@ -22,7 +24,7 @@ public class Hostname
                     return new String( name, 0, strlen( name ) );
                     }
                 }
-            catch ( Throwable ignored )
+            catch ( Exception ignored )
                 {
                 return null;
                 }
@@ -37,7 +39,7 @@ public class Hostname
                     return uname.getNodename();
                     }
                 }
-            catch ( Throwable ignored )
+            catch ( Exception ignored )
                 {
                 return null;
                 }
@@ -45,12 +47,4 @@ public class Hostname
         return null;
     }
 
-    public static int strlen( final byte[] data )
-    {
-        int len = 0;
-        final int datalen = data.length;
-        while ( len < datalen && data[ len ] != 0 )
-            len++;
-        return len;
-    }
 }

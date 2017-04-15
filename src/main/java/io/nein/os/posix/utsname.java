@@ -17,16 +17,18 @@
 
 package io.nein.os.posix;
 
+import com.sun.jna.Platform;
 import com.sun.jna.Structure;
-import io.nein.os.Hostname;
 
 import java.util.Arrays;
 import java.util.List;
 
+import static io.nein.os.common.String.strlen;
+
 public class utsname extends Structure
 {
 
-    public static final int _UTSNAME_LENGTH = 65;
+    public static final int _UTSNAME_LENGTH = Platform.isMac() ? 256 : 65;
 
     static List<String> FIELD_ORDER = Arrays.asList(
             "sysname",
@@ -75,17 +77,17 @@ public class utsname extends Structure
 
     public String getSysname()
     {
-        return new String( sysname, 0, Hostname.strlen( sysname ) );
+        return new String( sysname, 0, strlen( sysname ) );
     }
 
     public String getNodename()
     {
-        return new String( nodename, 0, Hostname.strlen( nodename ) );
+        return new String( nodename, 0, strlen( nodename ) );
     }
 
     public String getRelease()
     {
-        return new String( release, 0, Hostname.strlen( release ) );
+        return new String( release, 0, strlen( release ) );
     }
 
     public String getReleaseVersion()
@@ -107,17 +109,17 @@ public class utsname extends Structure
 
     public String getVersion()
     {
-        return new String( version, 0, Hostname.strlen( version ) );
+        return new String( version, 0, strlen( version ) );
     }
 
     public String getMachine()
     {
-        return new String( machine, 0, Hostname.strlen( machine ) );
+        return new String( machine, 0, strlen( machine ) );
     }
 
     public String getDomainname()
     {
-        return new String( domainname, 0, Hostname.strlen( domainname ) );
+        return new String( domainname, 0, strlen( domainname ) );
     }
 
     @Override
