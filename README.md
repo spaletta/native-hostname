@@ -7,4 +7,4 @@ Because `InetAddress.getLocalHost().getHostName()` sucks.
 
 ## License
 
-[EUPL-1.1](LICENSE)
+[EUPL-1.2](LICENSE)
