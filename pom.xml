@@ -16,7 +16,16 @@
 
     <name>native-hostname</name>
     <description>Gets the hostname via the OS native call on POSIX and Windows NT. Because
-        InetAddress.getLocalHost().getHostName() sucks.</description>
+        InetAddress.getLocalHost().getHostName() sucks.
+    </description>
+
+    <distributionManagement>
+        <repository>
+            <id>github</id>
+            <name>GitHub Packages</name>
+            <url>https://maven.pkg.github.com/spaletta/native-hostname</url>
+        </repository>
+    </distributionManagement>
 
     <properties>
         <version.jna>4.1.0</version.jna>
